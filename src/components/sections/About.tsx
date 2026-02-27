@@ -32,7 +32,7 @@ const About: React.FC = () => {
               <div>
                 <div className="space-y-6">
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    I'm a front-end developer with 6+ years of experience in education tech company. 
+                    I'm a front-end developer with 7+ years of experience in education tech company. 
                     I love to create simple yet beautiful websites with great user experience.
                   </p>
                   <p className="text-lg text-gray-300 leading-relaxed">
