@@ -116,19 +116,22 @@ const Projects: React.FC = () => {
                   onClick={() => setSelectedProject(project)}
                 >
                   <div className="h-24 bg-linear-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={project.image || '/images/default-project.png'} 
-                    alt={project.title}
-                    className="w-full h-full object-contain p-2"
-                    onError={(e: any) => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.display = 'none';
-                      if (img.nextElementSibling) {
-                        (img.nextElementSibling as HTMLElement).style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="text-4xl" style={{display: 'none'}}>🚀</div>
+                  {project.image && project.image !== '' ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-contain p-2"
+                      onError={(e: any) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.display = 'none';
+                        if (img.nextElementSibling) {
+                          (img.nextElementSibling as HTMLElement).style.display = 'flex';
+                        }
+                      }}
+                    />
+                  ) : (
+                    <div className="text-4xl">🚀</div>
+                  )}
                 </div>
                 
                 <div className="p-4">
@@ -192,19 +195,22 @@ const Projects: React.FC = () => {
                 </div>
                 
                 <div className="h-64 bg-linear-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-6 rounded-lg overflow-hidden">
-                  <img 
-                    src={selectedProject.image || '/images/default-project.png'} 
-                    alt={selectedProject.title}
-                    className="w-full h-full object-contain p-6"
-                    onError={(e: any) => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.display = 'none';
-                      if (img.nextElementSibling) {
-                        (img.nextElementSibling as HTMLElement).style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="text-6xl" style={{display: 'none'}}>🚀</div>
+                  {(!selectedProject.image || selectedProject.image === '') ? (
+                    <div className="text-6xl">🚀</div>
+                  ) : (
+                    <img 
+                      src={selectedProject.image} 
+                      alt={selectedProject.title}
+                      className="w-full h-full object-contain p-6"
+                      onError={(e: any) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.display = 'none';
+                        if (img.nextElementSibling) {
+                          (img.nextElementSibling as HTMLElement).style.display = 'flex';
+                        }
+                      }}
+                    />
+                  )}
                 </div>
                 
                 <p className="text-gray-300 mb-6">{selectedProject.description}</p>
